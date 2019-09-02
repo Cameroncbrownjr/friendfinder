@@ -12,15 +12,15 @@
     <h1>Survey</h1>
     <div class="form-example">
         <label for="name">Enter your name: </label>
-        <input type="text" name="name">
+        <input type="text" id="name">
     </div>
     <div class="form-example">
         <label for="picture">Upload picture </label>
-        <input type="text" name="picture">
+        <input type="text" id="picture">
     </div>
     <div>
         <strong>question 1</strong>
-        <select class="chosen-select" id="q1">
+        <select class="chosen-select" id="1">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -31,7 +31,7 @@
     </div>
     <div>
         <strong>question 2</strong>
-        <select class="chosen-select" id="q1">
+        <select class="chosen-select" id="2">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -42,7 +42,7 @@
     </div>
     <div>
         <strong>question 3</strong>
-        <select class="chosen-select" id="q1">
+        <select class="chosen-select" id="2">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -53,7 +53,7 @@
     </div>
     <div>
         <strong>question 4</strong>
-        <select class="chosen-select" id="q1">
+        <select class="chosen-select" id="2">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -64,7 +64,7 @@
     </div>
     <div>
         <strong>question 5</strong>
-        <select class="chosen-select" id="q1">
+        <select class="chosen-select" id="2">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -75,7 +75,7 @@
     </div>
     <div>
         <strong>question 6</strong>
-        <select class="chosen-select" id="q1">
+        <select class="chosen-select" id="2">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -86,7 +86,7 @@
     </div>
     <div>
         <strong>question 7</strong>
-        <select class="chosen-select" id="q1">
+        <select class="chosen-select" id="2">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -97,7 +97,7 @@
     </div>
     <div>
         <strong>question 8</strong>
-        <select class="chosen-select" id="q1">
+        <select class="chosen-select" id="2">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -108,7 +108,7 @@
     </div>
     <div>
         <strong>question 9</strong>
-        <select class="chosen-select" id="q1">
+        <select class="chosen-select" id="2">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -119,7 +119,7 @@
     </div>
     <div>
         <strong>question 10</strong>
-        <select class="chosen-select" id="q1">
+        <select class="chosen-select" id="2">
             <option value=""></option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2</option>
@@ -129,10 +129,25 @@
         </select>
     </div>
     <div class="form-example">
-        <input type="submit" value="Submit">
+        <button id="submit">submit</button>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <a href="/">back</a>
+
+    <script>
+        $(document).ready(function () {
+            $('#submit').on('click', function () {
+                var user = {}
+                user.name = $('#name').val()
+                user.picture = $('#picture').val()
+                user.questions = []
+                user.questions.push($('#1').val())
+                user.questions.push($('#2').val())
+                $.post('/friends', user);
+            })
+        });
+    </script>
 </body>
 
 </html>
