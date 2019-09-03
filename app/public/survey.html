@@ -169,10 +169,11 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Modal Header</h4>
+                    <h4 class="modal-title">Closest Match</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Some text in the modal.</p>
+                    <p id="best-name">Some text in the modal.</p>
+                    <img id="best-img" src="" alt="image" width="300">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -201,9 +202,11 @@
                 user.questions.push($('#8').val())
                 user.questions.push($('#9').val())
                 user.questions.push($('#10').val())
-                $("#myModal").modal();
                 $.post('/friends', user, function (data) {
                     console.log(data)
+                    $("#best-name").text(data.name);
+                    $("#best-img").attr('src', data.picture);
+                    $("#myModal").modal('toggle');
                 });
             })
         });
