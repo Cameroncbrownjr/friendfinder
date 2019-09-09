@@ -1,6 +1,6 @@
 var express = require('express')
 
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || port;
 //tiny change
 //the tiny change tha could get detected
 
